@@ -1,0 +1,15 @@
+h2 Join Pong Lords
+
+= simple_form_for(@player, :url => player_invitation_claim_path(@player)) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :first_name, :required => true
+    = f.input :last_name, :required => true
+    = f.input :nickname, :autofocus => true
+    = f.input :email, :required => true
+    = f.input :password, :required => true
+    = f.input :password_confirmation, :required => true
+
+  .form-actions
+    = f.button :submit, "Join"

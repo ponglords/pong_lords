@@ -1,0 +1,5 @@
+h1 Hello #{@invitation.first_name}
+
+p Someone has invited you to join Pong Lords.
+
+p Click #{link_to "here", invited_player_registration_url(@invitation.uuid)} to join.

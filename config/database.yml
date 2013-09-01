@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+  database: pong_lords
+  host: localhost
+  username: <%= ENV["PL_DB_USER"] %>
+  pool: 5
+  timeout: 5000
+
+test: &test
+  adapter: postgresql
+  database: pong_lords_test
+  host: localhost
+  username: <%= ENV["PL_DB_USER"] %>
+  pool: 5
+  timeout: 5000
+
+cucumber:
+  <<: *test
