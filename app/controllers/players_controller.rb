@@ -10,7 +10,7 @@ class PlayersController < ApplicationController
     @player = Player.new(player_params)
 
     if @player.save
-      redirect_to root_path
+      redirect_to thanks_path
     else
       render :new
     end

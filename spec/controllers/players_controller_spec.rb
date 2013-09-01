@@ -44,7 +44,7 @@ describe PlayersController do
       it "renders the show template" do
         post :create, parameters
 
-        response.should redirect_to root_path
+        response.should redirect_to thanks_path
       end
     end
 

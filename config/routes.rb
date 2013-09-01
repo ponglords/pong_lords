@@ -9,5 +9,7 @@ PongLords::Application.routes.draw do
   get '/players/:uuid/claim', to: 'players#new', as: 'invited_player_registration'
   post '/players', to: 'players#create', as: 'player_invitation_claim'
 
+  get 'thanks', to: 'static#thanks'
+
   root to: "home#index"
 end
