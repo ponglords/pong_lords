@@ -1,15 +1,14 @@
-h2 Join Pong Lords
+.container
 
-= simple_form_for(@player, :url => player_invitation_claim_path(@player)) do |f|
-  = f.error_notification
+  = simple_form_for(@player, :url => player_invitation_claim_path(@player), html: { class: 'form-signin'}) do |f|
+    h2.form-signin-heading Join Pong Lords
+    = f.error_notification
 
-  .form-inputs
+    = f.input :email, :required => true
     = f.input :first_name, :required => true
     = f.input :last_name, :required => true
     = f.input :nickname, :autofocus => true
-    = f.input :email, :required => true
     = f.input :password, :required => true
     = f.input :password_confirmation, :required => true
 
-  .form-actions
-    = f.button :submit, "Join"
+    = f.button :submit, "Join", class: "btn btn-lg btn-primary btn-block"
