@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title>Creating a player</title>
+    <title>Logging in a player</title>
     <link href="/docs/v1/style.css" media="screen" rel="stylesheet" type="text/css">
     <link href="/docs/v1/bootstrap.css" media="screen" rel="stylesheet" type="text/css">
     <link href="/docs/v1/dark.css" media="screen" rel="stylesheet" type="text/css">
@@ -11,12 +11,12 @@
   <body>
     <div class="container">
       <div class="row">
-        <h1>Creating a player</h1>
+        <h1>Logging in a player</h1>
         <a href="/docs/v1">Return</a>
       </div>
       <div class="row">
         <h2></h2>
-        <h3>/v1/players &ndash; POST</h3>
+        <h3>/v1/sign_in &ndash; POST</h3>
         <br/>
       </div>
       <div class="row">
@@ -25,11 +25,7 @@
             {
               "player": {
                 "email": "test@example.com",
-                "first_name": "First",
-                "last_name": "Last",
-                "nickname": "Nickname",
-                "password": "[password]",
-                "password_confirmation": "[password]"
+                "password": "[password]"
               }
             }
           </code>
@@ -48,14 +44,14 @@
                 "first_name": "First",
                 "last_name": "Last",
                 "nickname": "Nickname",
-                "auth_token": null
+                "auth_token": "[authentication_token]"
               }
             }
           </code>
         </pre>
       </div>
       <div class="row">
-        <h3>Error response</h3>
+        <h3>Error response - Missing required parameters</h3>
         <p>HTTP Status code - 422</p>
       </div>
       <div class="row">
@@ -63,8 +59,22 @@
           <code>
             {
               "errors": [
-                "Email has already been taken",
-                "Password confirmation doesn't match Password"
+                "Missing required parameters"
+              ]
+            }
+          </code>
+        </pre>
+      </div>
+      <div class="row">
+        <h3>Error response - Incorrect email/password combination</h3>
+        <p>HTTP Status code - 401</p>
+      </div>
+      <div class="row">
+        <pre>
+          <code>
+            {
+              "errors": [
+                "The email and or password are not valid"
               ]
             }
           </code>
