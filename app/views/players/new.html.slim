@@ -1,14 +1,23 @@
 .container
 
-  = simple_form_for(@player, :url => player_invitation_claim_path(@player), html: { class: 'form-signin'}) do |f|
-    h2.form-signin-heading Join Pong Lords
-    = f.error_notification
+  = simple_form_for(@player, :url => player_invitation_claim_path(@player), html: { class: 'centered-ctn'}) do |f|
+    .img-ctn
+      = image_tag "logo.png"
+    .img-ctn
+      = image_tag "join_pong_lords.png"
 
-    = f.input :email, :required => true
-    = f.input :first_name, :required => true
-    = f.input :last_name, :required => true
-    = f.input :nickname, :autofocus => true
-    = f.input :password, :required => true
-    = f.input :password_confirmation, :required => true
+    = f.full_error :email
+    = f.input :email, :required => true, label: false, placeholder: "Email", error: false
+    = f.full_error :first_name
+    = f.input :first_name, :required => true, label: false, placeholder: "First name", error: false
+    = f.full_error :last_name
+    = f.input :last_name, :required => true, label: false, placeholder: "Last name", error: false
+    = f.full_error :nickname
+    = f.input :nickname, :autofocus => true, label: false, placeholder: "Handle (optional)", error: false
+    = f.full_error :password
+    = f.input :password, :required => true, label: false, placeholder: "Password", error: false
+    = f.full_error :password_confirmation
+    = f.input :password_confirmation, :required => true, label: false, placeholder: "Confirm password", error: false
 
-    = f.button :submit, "Join", class: "btn btn-lg btn-primary btn-block"
+    .input
+      = f.button :submit, "submit", class: "submit-btn"
