@@ -16,20 +16,19 @@
 
 .centered-ctn {
   margin: 0 auto;
-  max-width: 330px;
-  padding: 5px 15px 15px 15px;
+  padding: 5px 0px 15px 0px;
 }
 
-.img-ctn { 
+.img-ctn {
 	margin: 6px 0px;
-	text-align: center; 
+	text-align: center;
 }
 
 input,
 .input {
 	background-color: #F8F4EB;
 	margin: 0px auto 25px auto;
-	color: #EA4838;
+	color: #3D3D3D;
 	font-size: 20px;
 }
 
@@ -44,7 +43,7 @@ input,
 .input,
 .submit-btn {
 	border: none;
-	width: 290px;
+	width: 288px;
 	height: 50px;
 	letter-spacing: 1px;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
