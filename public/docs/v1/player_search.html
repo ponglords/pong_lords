@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Logging in a player</title>
+    <link href="/docs/v1/style.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/docs/v1/bootstrap.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/docs/v1/dark.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="/docs/v1/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1>Searching for a player</h1>
+        <a href="/docs/v1">Return</a>
+      </div>
+      <div class="row">
+        <h2></h2>
+        <h3>/v1/players &ndash; GET</h3>
+        <br/>
+      </div>
+      <div class="row">
+        <h2>Without a search parameter, returns the 20 most recently created players</h2>
+        <h3>Successful response</h3>
+        <p>HTTP Status code - 200</p>
+      </div>
+      <div class="row">
+        <pre>
+          <code>
+          [
+            {
+              "id": 1,
+              "email": "player_1@email.com",
+              "first_name": "First",
+              "last_name": "Last",
+              "nickname": "Nickname 1"
+            },
+            {
+              "id": 2,
+              "email": "player_2@email.com",
+              "first_name": "Second",
+              "last_name": "Last",
+              "nickname": "Nickname 2"
+            }
+          ]
+          </code>
+        </pre>
+      </div>
+      <div class="row">
+        <h2></h2>
+        <h3>/v1/players?search=[term] &ndash; GET</h3>
+        <br/>
+      </div>
+      <div class="row">
+        <h2>Returns a list of players that contain the search term in their email, first, last or nickname</h2>
+        <h3>Successful response</h3>
+        <p>HTTP Status code - 200</p>
+      </div>
+      <div class="row">
+        <pre>
+          <code>
+          [
+            {
+              "id": 1,
+              "email": "player_1@email.com",
+              "first_name": "First",
+              "last_name": "Last",
+              "nickname": "Nickname 1"
+            }
+          ]
+          </code>
+        </pre>
+      </div>
+      <div class="row">
+        <h2>When no results are found an empty list is returned</h2>
+        <h3>Successful response</h3>
+        <p>HTTP Status code - 200</p>
+      </div>
+      <div class="row">
+        <pre>
+          <code>
+          [ ]
+          </code>
+        </pre>
+      </div>
+    </div>
+  </body>
+</html>
