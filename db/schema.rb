@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130831222009) do
+ActiveRecord::Schema.define(version: 20131114212522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,31 +25,49 @@ ActiveRecord::Schema.define(version: 20130831222009) do
     t.string   "last_name",  default: "", null: false
   end
 
+  create_table "matches", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "players", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                    default: "",    null: false
+    t.string   "encrypted_password",       default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
+    t.integer  "sign_in_count",            default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.integer  "failed_attempts",        default: 0
+    t.integer  "failed_attempts",          default: 0
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name",             default: "", null: false
-    t.string   "last_name",              default: "", null: false
-    t.string   "nickname",               default: "", null: false
+    t.string   "first_name",               default: "",    null: false
+    t.string   "last_name",                default: "",    null: false
+    t.string   "nickname",                 default: "",    null: false
+    t.integer  "ranking",                  default: 1000
+    t.boolean  "reached_pro",              default: false
+    t.float    "diversity_index",          default: 0.0
+    t.float    "elo_with_diversity_index", default: 0.0
   end
 
   add_index "players", ["authentication_token"], name: "index_players_on_authentication_token", unique: true, using: :btree
   add_index "players", ["email"], name: "index_players_on_email", unique: true, using: :btree
   add_index "players", ["reset_password_token"], name: "index_players_on_reset_password_token", unique: true, using: :btree
   add_index "players", ["unlock_token"], name: "index_players_on_unlock_token", unique: true, using: :btree
+
+  create_table "results", force: true do |t|
+    t.integer  "player_id"
+    t.integer  "match_id"
+    t.boolean  "won",                default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "doubles_partner_id"
+  end
 
 end

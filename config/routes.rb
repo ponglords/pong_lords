@@ -2,6 +2,7 @@ PongLords::Application.routes.draw do
   api_version(module: "Api::V1", path: {:value => "v1"}, defaults: {:format => "json"}) do
     resources :players, only: [:index, :show, :create]
     resources :invitations, only: [:create]
+    resources :matches, only: [:create]
 
     post :sign_in, to: 'sessions#create', as: :sign_in
   end
