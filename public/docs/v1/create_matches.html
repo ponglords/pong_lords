@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Creating a match</title>
+    <link href="/docs/v1/style.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/docs/v1/bootstrap.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/docs/v1/dark.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="/docs/v1/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1>Creating a match</h1>
+        <a href="/docs/v1">Return</a>
+      </div>
+      <div class="row">
+        <h2>Singles match</h2>
+        <h3>/v1/matches &ndash; POST</h3>
+        <br/>
+      </div>
+      <div class="row">
+        <pre>
+          <code>
+            {
+              "match": {
+                "players": [
+                  {
+                    "id": 1,
+                    "won": true
+                  },
+                  {
+                    "id": 3,
+                    "won": false
+                  }
+                ]
+              }
+            }
+          </code>
+        </pre>
+      </div>
+      <div class="row">
+        <h2>Doubles match</h2>
+        <h3>/v1/matches &ndash; POST</h3>
+        <br/>
+      </div>
+      <div class="row">
+        <pre>
+          <code>
+            {
+              "match": {
+                "players": [
+                  {
+                    "id": 1,
+                    "won": true
+                  },
+                  {
+                    "id": 3,
+                    "won": true
+                  },
+                  {
+                    "id": 5,
+                    "won": false
+                  },
+                  {
+                    "id": 8,
+                    "won": false
+                  }
+                ]
+              }
+            }
+          </code>
+        </pre>
+      </div>
+      <div class="row">
+        <h3>Successful response</h3>
+        <p>HTTP Status code - 200</p>
+      </div>
+      <div class="row">
+        <pre>
+          <code>
+            [
+              {
+                "id": 1,
+                "email": "test@example.com",
+                "first_name": "First",
+                "last_name": "Last",
+                "nickname": "Nickname",
+                "ranking": 1010
+              },
+              {
+                "id": 3,
+                "email": "test-3@example.com",
+                "first_name": "First",
+                "last_name": "Last",
+                "nickname": "Nickname",
+                "ranking": 1005
+              }
+            ]
+          </code>
+        </pre>
+      </div>
+      <div class="row">
+        <h3>Error response</h3>
+        <p>HTTP Status code - 422</p>
+      </div>
+      <div class="row">
+        <pre>
+          <code>
+            {
+              "errors": [
+                "Invalid number of players",
+                "Number of winners do not match the number of losers"
+              ]
+            }
+          </code>
+        </pre>
+      </div>
+    </div>
+  </body>
+</html>
